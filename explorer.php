@@ -131,7 +131,7 @@
         <div class="brand">TrendsWear</div>
         <nav class="nav">
             <div class="dropdown">
-                <button class="dropdown-btn">Men ⌄</button>
+                <button class="dropdown-btn">Addidas⌄</button>
                 <div class="dropdown-content">
                     <a href="#">T-shirts</a>
                     <a href="#">Polo Shirts</a>
@@ -151,7 +151,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropdown-btn">Shoes</button>
+                <button class="dropdown-btn">Shoes ⌄</button>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Accessories ⌄</button>

@@ -23,15 +23,18 @@ try{
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: url('images (13).jpeg');
         }
 
         form {
+            color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             border: 2px solid blue;
+            
             border-radius: 20px;
-            padding: 50px;
+            padding: 60px;
             gap: 10px;
         }
 
@@ -46,7 +49,7 @@ try{
 
      a, a:visited{
          text-decoration:underline;
-         color:black;
+         color:blue;
      }
 
      span{
@@ -73,6 +76,7 @@ try{
     <span>
     <p>Already have an account?&nbsp;</p>
     <a href="./login.php">Login</a>
+
     </span>
 
 </form>
