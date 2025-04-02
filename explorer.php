@@ -17,7 +17,10 @@
             align-items: center;
             padding: 15px 20px;
             background: #000000;
+            position: fixed;
+            top: 0px;
         }
+
         .left-selection{
             display: flex;
             align-items: center;
@@ -46,7 +49,7 @@
             border: none;
             color: white;
             font-size: 16px;
-            cursor: pointer;
+            cursor: pointer;   
         }
 
         .dropdown-content {
@@ -122,146 +125,145 @@
             color: white;
             background-color: #000000; 
         }
+        .dd {
+            height: 15px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="left-selection">
-        <div class="brand">TrendsWear</div>
+        <div class="brand">Collections</div>
         <nav class="nav">
             <div class="dropdown">
-                <button class="dropdown-btn">Addidas⌄</button>
+                <button class="dropdown-btn">Select Brand ⌄</button>
                 <div class="dropdown-content">
-                    <a href="#">T-shirts</a>
-                    <a href="#">Polo Shirts</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Pants</a>
-                    <a href="#">Hoodies & Sweatshirts</a>
+                    <a href="#">All</a>
+                    <a href="#">Adidas</a>
+                    <a href="#">Nike</a>
+                    <a href="#">Fila</a>
+                    <a href="#">Jordan</a>
+                    <a href="#">New Balance</a>
+                    <a href="#">World Balance</a>
                 </div>
             </div>
        
             <div class="dropdown">
-                <button class="dropdown-btn">Women ⌄</button>
+                <button class="dropdown-btn">Sneakers</button>
                 <div class="dropdown-content">
-                    <a href="#">Dresses</a>
-                    <a href="#">Tops</a>
-                    <a href="#">Blouses</a>
-                    <a href="#">Pants</a>
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropdown-btn">Shoes ⌄</button>
+                <button class="dropdown-btn">Boots</button>
             </div>
             <div class="dropdown">
-                <button class="dropdown-btn">Accessories ⌄</button>
-                <div class="dropdown-content">
-                    <a href="#">Eyewear</a>
-                    <a href="#">Necklace</a>
-                    <a href="#">Watch</a>
-                    <a href="#">Wallet</a>
+                <button class="dropdown-btn">Sandals </button>
+              
+                    
                 </div>
             </div>
         </nav>
     </div>
-
     <div class="right-selection">
         <div class="account-info" id="account-info">Sign In/Register</div>
         <div class="cart-icon disabled" id="cart-icon">🛒</div>
     </div>
-    </header>
+</header>
+<div class="dd"></div>
     <h1 class="explore-title">Explore Our Collections</h1>
 
 
     <section class="products">
         <div class="product-card">
-            <img src="prod3M.png" alt="Product">
-            <div class="product-title">Casual Khaki Minimal Print Shirt</div>
+            <img src="Screenshot 2025-03-29 123931.png" alt="Product">
+            <div class="product-title">New Balance Men's 608 V5 Walking Shoe</div>
         </div>
         <div class="product-card">
-            <img src="prod4M.png" alt="Product">
-            <div class="product-title">Men's Cartoon Print Khaki Shirt</div>
+            <img src="Screenshot 2025-03-29 124856.png" alt="Product">
+            <div class="product-title">New Balance Men's Fresh Foam 520 v9 Wide Running Shoe</div>
         </div>
         <div class="product-card">
-            <img src="prod5M.png" alt="Product">
-            <div class="product-title">CozeMod Plus Size Men</div>
+            <img src="Screenshot 2025-03-29 125154.png" alt="Product">
+            <div class="product-title">New Balance Men's 680 Running Shoe</div>
         </div>
         <div class="product-card">
-            <img src="Prod6Mh.png" alt="Product">
-            <div class="product-title"> Men Funny Graphic Hoodie</div>
+            <img src="Screenshot 2025-03-29 125650.png" alt="Product">
+            <div class="product-title">Adidas Women's Terrex Tracefinder Trail Running Shoe</div>
         </div>
         <div class="product-card">
-            <img src="Prod7Mp.png" alt="Product">
-            <div class="product-title">Men High-Waist Pants Dark</div>
+            <img src="Screenshot 2025-03-29 130046.png" alt="Product">
+            <div class="product-title">Adidas Women's Ultra Run 5 Running Shoe</div>
         </div>
         <div class="product-card">
-            <img src="prod8Ms.png" alt="Product">
-            <div class="product-title">Men Drawstring Waist Pocket Shorts</div>
+            <img src="Screenshot 2025-03-29 130615.png" alt="Product">
+            <div class="product-title">Nike Women's V5 RNR Sneaker</div>
         </div>
 
     <div class="product-card">
-        <img src="W3pants.png" alt="Product">
-        <div class="product-title">Solid Gray Waist Sweatpants</div>
+        <img src="Screenshot 2025-03-29 130912.png" alt="Product">
+        <div class="product-title">Nike Women's Air Max Portal Sneaker</div>
     </div>
     <div class="product-card">
-        <img src="W2pants.png" alt="Product">
-        <div class="product-title">White Casual Straight Pants</div>
+        <img src="Screenshot 2025-03-29 131127.png" alt="Product">
+        <div class="product-title">Nike Men's Victori One Slide Sandal</div>
     </div>
     <div class="product-card">
-        <img src="W1pants.png" alt="Product">
-        <div class="product-title">Camo Print Black Pants</div>
+        <img src="Screenshot 2025-03-29 131330.png" alt="Product">
+        <div class="product-title">Nike Men's Offcourt Slide Sandal</div>
     </div>
     <div class="product-card">
-        <img src="Block Polo Shirt.jpg" alt="Product">
-        <div class="product-title">Block Polo Shirt</div>
+        <img src="Screenshot 2025-03-29 131648.png" alt="Product">
+        <div class="product-title">Adidas Adilette Comfort Slide Sandal</div>
     </div>
     <div class="product-card">
-        <img src="Button Front Jacket.jpg" alt="Product">
-        <div class="product-title">Button Front Jacket</div>
+        <img src="Screenshot 2025-03-29 134904.png" alt="Product">
+        <div class="product-title">Adidas Kids' Adilette Shower Slide Sandal Little/Big Kid</div>
     </div>
     <div class="product-card">
-        <img src="Casual Floral Print Graphic Short Sleeve Collar Shirt.jpg" alt="Product">
-        <div class="product-title">Casual Floral Print Graphic Short Sleeve Collar Shirt</div>
+        <img src="Screenshot 2025-03-29 135317.png" alt="Product">
+        <div class="product-title">Nike Kids' Kawa Slide Sandal Little/Big Kid</div>
     </div>
     <div class="product-card">
-        <img src="Casual Loose Fit Woven Shirt.jpg" alt="Product">
-        <div class="product-title">Casual Loose Fit Woven Shirt</div>
+        <img src="Screenshot 2025-03-29 135902.png" alt="Product">
+        <div class="product-title">Nike Women's Victori One Slide Sandal</div>
     </div>
     <div class="product-card">
-        <img src="Floral Short Sleeve.jpg" alt="Product">
-        <div class="product-title">Floral Short Sleeve</div>
+        <img src="Screenshot 2025-03-29 141423.png" alt="Product">
+        <div class="product-title">New Balance Kids' 750 V 2 Water Sandal Baby/Toddler</div>
     </div>
     <div class="product-card">
-        <img src="Geometric Striped Long Sleeve Shirt.jpg" alt="Product">
-        <div class="product-title">Geometric Striped Long Sleeve Shirt</div>
+        <img src="Screenshot 2025-03-29 142003.png" alt="Product">
+        <div class="product-title">New Balance Women's Arishi V4 Fresh Foam Running Shoe</div>
     </div>
     <div class="product-card">
-        <img src="Pocket Patched Tee.jpg" alt="Product">
-        <div class="product-title">Pocket Patched Tee</div>
+        <img src="Screenshot 2025-03-29 143236.png" alt="Product">
+        <div class="product-title">New Balance Men's Fresh Foam 520 v9 Wide Running Shoe</div>
     </div>
     <div class="product-card">
-        <img src="Printed Short Sleeve T-Shirt.jpg" alt="Product">
-        <div class="product-title">Printed Short Sleeve T-Shirt</div>
+        <img src="Screenshot 2025-03-29 143605.png" alt="Product">
+        <div class="product-title">New Balance Men's Fresh Foam Roav Running Shoe</div>
     </div>
     <div class="product-card">
-        <img src="Puff Sleeve Blouse.jpg" alt="Product">
-        <div class="product-title">Puff Sleeve Blouse</div>
+        <img src="Screenshot 2025-03-29 144008.png" alt="Product">
+        <div class="product-title">New Balance Men's 515 Retro Sneaker</div>
     </div>
     <div class="product-card">
-        <img src="Rib-Knit Polo Shirt, Plain Collar Shirt.jpg" alt="Product">
-        <div class="product-title">Rib-Knit Polo Shirt, Plain Collar Shirt</div>
+        <img src="Screenshot 2025-03-29 144831.png" alt="Product">
+        <div class="product-title">New Balance Men's 997R Retro Sneaker</div>
     </div>
     <div class="product-card">
-        <img src="Striped Print Twist Front Asymmetrical Hem Blouse Peplum Top.jpg" alt="Product">
-        <div class="product-title">Striped Print Twist Front Asymmetrical Hem Blouse Peplum Top</div>
+        <img src="Screenshot 2025-03-29 145223.png" alt="Product">
+        <div class="product-title">New Balance Men's 997H Retro Sneaker</div>
     </div>
     <div class="product-card">
-        <img src="Women Woven Cropped Shirt.jpg" alt="Product">
-        <div class="product-title">Women Woven Cropped Shirt</div>
+        <img src="Screenshot 2025-03-29 152148.png" alt="Product">
+        <div class="product-title">Adidas Copa Pure 3 Club Firm/Multi-Ground Boots Kids</div>
     </div>
     <div class="product-card">
-        <img src="Women_s Casual & Business Loose .jpg" alt="Product">
-        <div class="product-title">Women_s Casual & Business Loose </div>
+        <img src="Screenshot 2025-03-29 152607.png">
+        <div class="product-title">Adidas Codechaos Boot Spikeless Golf Shoes </div>
     </div>
     <div class="product-card">
         <img src="Zip-Up Long Sleeve Hoodie.jpg" alt="Product">
