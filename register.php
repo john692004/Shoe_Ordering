@@ -55,6 +55,7 @@ if (isset($_POST["register"])) {
     <style>
 
         body {
+            background-image: url(" images (13).jpeg");
             display: flex;
             justify-content: center;
             align-items: center;

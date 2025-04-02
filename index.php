@@ -24,7 +24,7 @@
       <h1>WELCOME TO SHOE ORDERING</h1>
     </div>
     <div class="shop-button-container">
-      <a href="signin.php" class="shop-button">GET STARTED</a>
+      <a href="login.php" class="shop-button">GET STARTED</a>
     </div>
   </div>
   <script src="script.js"></script>

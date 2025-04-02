@@ -9,9 +9,12 @@
             background-color: #e6e6e6;
             margin: 0;
             padding: 0;
+            width: 100vw;
+            height: 100vh;
         }
 
         header {
+            width: 98%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,6 +45,10 @@
         .dropdown {
             position: relative;
             display: inline-block;
+        }
+
+        ::-webkit-scrollbar{
+            display: none;
         }
 
         .dropdown-btn {
@@ -138,7 +145,8 @@
         <div class="brand">Collections</div>
         <nav class="nav">
             <div class="dropdown">
-                <button class="dropdown-btn">Select Brand ⌄</button>
+                <button class="dropdown-btn">Select Brand <image src="down-chevron (2).png"button>
+                
                 <div class="dropdown-content">
                     <a href="#">All</a>
                     <a href="#">Adidas</a>
@@ -168,14 +176,36 @@
     </div>
     <div class="right-selection">
         <div class="account-info" id="account-info">Sign In/Register</div>
-        <div class="cart-icon disabled" id="cart-icon">🛒</div>
     </div>
+    <input class="searchbar"  placeholder="Search" type="text">
+    <image src="magnifying-glass.png" style="transform:translateX(-150px);" width="12px" height="12px">
+    <div class="cart-icon disabled" id="cart-icon">🛒</div>
 </header>
 <div class="dd"></div>
     <h1 class="explore-title">Explore Our Collections</h1>
 
-
     <section class="products">
+<?php
+    require("./db.php");
+
+    $query="select * from Product";
+    
+
+    if($exec = mysqli_query($conn,$query)){
+        while($rows = mysqli_fetch_assoc($exec)){
+
+            $Name= $rows["Name"];
+            $Image= $rows["ImageURL"];
+            echo"  <div class='product-card'>
+            <img src='" . $Image . "' alt='Product'>
+            <div class='product-title'>" . $Name . "</div>
+        </div>";
+        }
+    }
+?>  
+    </section>
+
+    <!-- <section class="products">
         <div class="product-card">
             <img src="Screenshot 2025-03-29 123931.png" alt="Product">
             <div class="product-title">New Balance Men's 608 V5 Walking Shoe</div>
@@ -219,11 +249,11 @@
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 134904.png" alt="Product">
-        <div class="product-title">Adidas Kids' Adilette Shower Slide Sandal Little/Big Kid</div>
+        <div class="product-title">Adidas Kids' Adilette Shower Slide Sandal</div>
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 135317.png" alt="Product">
-        <div class="product-title">Nike Kids' Kawa Slide Sandal Little/Big Kid</div>
+        <div class="product-title">Nike Kids' Kawa Slide Sandal</div>
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 135902.png" alt="Product">
@@ -231,7 +261,7 @@
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 141423.png" alt="Product">
-        <div class="product-title">New Balance Kids' 750 V 2 Water Sandal Baby/Toddler</div>
+        <div class="product-title">New Balance Kids' 750 V 2 Water Sandal</div>
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 142003.png" alt="Product">
@@ -259,69 +289,73 @@
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 152148.png" alt="Product">
-        <div class="product-title">Adidas Copa Pure 3 Club Firm/Multi-Ground Boots Kids</div>
+        <div class="product-title">Adidas Copa Pure 3 Club Firm/Multi-Ground Boots</div>
     </div>
     <div class="product-card">
         <img src="Screenshot 2025-03-29 152607.png">
         <div class="product-title">Adidas Codechaos Boot Spikeless Golf Shoes </div>
     </div>
     <div class="product-card">
-        <img src="Zip-Up Long Sleeve Hoodie.jpg" alt="Product">
-        <div class="product-title">Zip-Up Long Sleeve Hoodie</div>
+        <img src="Screenshot 2025-03-30 073357.png" alt="Product">
+        <div class="product-title">World Balance Invictus Neobasics</div>
     </div>
     <div class="product-card">
-        <img src="Collar 3D Rose Mini Tube Dress.jpg" alt="Product">
-        <div class="product-title">Collar 3D Rose Mini Tube Dress</div>
+        <img src="Screenshot 2025-03-30 073638.png" alt="Product">
+        <div class="product-title">World Balance Reginald</div>
     </div>
     <div class="product-card">
-        <img src="Collar Halter Back Metal Decorative Buckle.jpg" alt="Product">
-        <div class="product-title">Collar Halter Back Metal Decorative Buckle</div>
+        <img src="Screenshot 2025-03-30 074142.png" alt="Product">
+        <div class="product-title">World Balance Yugo Step BB</div>
     </div>
     <div class="product-card">
-        <img src="Drawstring Halter Backless Tank Top.jpg" alt="Product">
-        <div class="product-title">Drawstring Halter Backless Tank Top</div>
+        <img src="Screenshot 2025-03-30 074814.png" alt="Product">
+        <div class="product-title">World Balance Triton L</div>
     </div>
     <div class="product-card">
-        <img src="Drawstring Waist Wide Leg Pants.jpg" alt="Product">
-        <div class="product-title">Drawstring Waist Wide Leg Pants</div>
+        <img src="Screenshot 2025-03-30 075148.png" alt="Product">
+        <div class="product-title">World Balance Heritage M</div>
     </div>
     <div class="product-card">
-        <img src="Floral Knitted Long Dress.jpg" alt="Product">
-        <div class="product-title">Floral Knitted Long Dress</div>
+        <img src="Screenshot 2025-03-30 075724.png" alt="Product">
+        <div class="product-title">Fila Chastizer SR</div>
     </div>
     <div class="product-card">
-        <img src="Floral Print Ruched Tube Top.jpg" alt="Product">
-        <div class="product-title">Floral Print Ruched Tube Top</div>
+        <img src="Screenshot 2025-03-30 080249.png" alt="Product">
+        <div class="product-title">Fila Disruptor II Premium</div>
     </div>
     <div class="product-card">
-        <img src="Halter Plunging Neck Fitted Mermaid Dress.jpg" alt="Product">
-        <div class="product-title">Halter Plunging Neck Fitted Mermaid Dress</div>
+        <img src="Screenshot 2025-03-30 080816.png" alt="Product">
+        <div class="product-title">Fila Perano Plus</div>
     </div>
     <div class="product-card">
-        <img src="Minimalist Casual Straight Leg Pants.jpg" alt="Product">
-        <div class="product-title">Minimalist Casual Straight Leg Pants</div>
+        <img src="Screenshot 2025-03-30 081106.png" alt="Product">
+        <div class="product-title">Fila Royalton</div>
     </div>
     <div class="product-card">
-        <img src="Ruffle Hem Cami Top" alt="Product">
-        <div class="product-title">Ruffle Hem Cami Top</div>
+        <img src="Screenshot 2025-03-30 221159.png" alt="Product">
+        <div class="product-title">Jordan Timberland 6" Premium Waterproof Boots</div>
     </div>
     <div class="product-card">
-        <img src="Sleeveless Knot Back Crisscross Tank Top.jpg" alt="Product">
-        <div class="product-title">Sleeveless Knot Back Crisscross Tank Top</div>
+        <img src="Screenshot 2025-03-30 222708.png" alt="Product">
+        <div class="product-title">Jordan Timberland Field Boots</div>
     </div>
     <div class="product-card">
-        <img src="Star Patchwork Fringe Baggy Denim Jeans Pants" alt="Product">
-        <div class></div>
+        <img src="Screenshot 2025-03-30 222919.png" alt="Product">
+        <div class="product-title">Jordan Timberland Chukka Boots</div>
+    </div>
+    <div class="product-card">
+        <img src="Screenshot 2025-03-30 223226.png" alt="Product">
+        <div class="product-title">Jordan Timberland Field Boots</div></div>
 
 
-
+ -->
 
     </section>
     </div>
     
     <script>
         const isLoggedIn = true;
-        const username = "Cristel";
+        const username = "";
 
         const accountInfo = document.getElementById("account-info");
         const cartIcon = document.getElementById("cart-icon");
