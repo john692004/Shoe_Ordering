@@ -1,39 +1,22 @@
-<a?php
+<?php
 session_start();
 include('db.php');
 
-$login_error = "";
+if (isset($_POST["login"])){
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
+    $query = "SELECT * FROM User WHERE Email = '$email'";
+    $execQuery = mysqli_query($conn, $query);
 
-if (isset($_POST["Login"])) {
-    $username = trim(filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS));
-    $password = trim(filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS));
-
-    
-    $query = "SELECT * FROM Registration WHERE Username =?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    $execQuery = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($execQuery) != 0) {
-        $rows = mysqli_fetch_assoc($execQuery);
-
-       
-        if (password_verify($password, $rows["Password"])) {
-            $_SESSION["username"] = $rows["Username"];
-            $_SESSION["role"] = $rows["Role"];  
-            header("Location: dashbaord.php");
-            exit();
-        } else {
-            header("Location: Login.php?authfailed");
-            exit();
+    if(mysqli_num_rows($execQuery) != 0){
+        if($rows = mysqli_fetch_assoc($execQuery)){
+            $role = $rows["Role"];
+            $_SESSION["role"] = $role;
+            header("location: explorer.php");
         }
-    } else {
-        session_unset();
-        session_destroy();
-        header("Location: Login.php?accountnotfound");
-        exit();
+    }else{
+        header("new.php");
     }
 }
 ?>
@@ -57,15 +40,17 @@ if (isset($_POST["Login"])) {
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            color: white;
            
         }
 
         .form-container {
-            background-color: #fff;
+            background-color: transparent;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
+            border: 2px solid #fff;
         }
 
         h2 {
@@ -123,23 +108,23 @@ if (isset($_POST["Login"])) {
             display: inline-flex;
             align-items: center;
             margin-top: 0 px;
+            text-wrap: nowrap;
         }
 
         .show-password input {
             margin-right: 0px;
         }
+
+        .show-password > label {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
-
     <div class="form-container">
-    
     
     <a href="index.php" class="exit-Button">Exit</a>
         <h2>Login</h2>
-
-        
-       
         <?php if (isset($_GET['authfailed'])): ?>
             <div class="error-message">Authentication failed. Please check your credentials.</div>
         <?php endif; ?>
@@ -148,19 +133,18 @@ if (isset($_POST["Login"])) {
             <div class="error-message">Account not found. Please check your details.</div>
         <?php endif; ?>
 
-       
-        <form method="POST" action="Login.php">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required><br><br>
+        <form method="POST">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required><br><br>
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required><br><br>
 
             <div class="show-password">
-           <input type="checkbox" id="showPassword"> <label for="showPassword">Show Password</label>
+            <input type="checkbox" id="showPassword"> <label for="showPassword">Show Password</label>
             </div><br>
 
-            <button type="submit" name="Login">Login</button>
+            <button type="submit" name="login">Login</button>
         </form>
        
     

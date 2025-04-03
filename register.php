@@ -1,43 +1,33 @@
 <?php
 session_start();
-
-
 include('db.php');
 
-$registration_error = "";
-
-
 if (isset($_POST["register"])) {
-
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
     $fullname = filter_input(INPUT_POST, "fullname", FILTER_SANITIZE_SPECIAL_CHARS);
-
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $phoneNo = filter_input(INPUT_POST, "phoneNo", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
+    $confirm_password = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
    
-    if ($password !== $confirm_password) {
+    if($password !== $confirm_password) {
         $registration_error = "Passwords do not match.";
-    } else {
+    }else{
        
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    
-        $query = "SELECT * FROM Registration WHERE Username = '$username' OR Email = '$email'";
+  
+        $query = "SELECT * FROM User WHERE PhoneNumber = '$phoneNo' OR Email = '$email'";
         $execQuery = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($execQuery) != 0) {
-            $registration_error = "Username or Email already exists.";
-        } else {
-           
-            $query = "INSERT INTO Registration (Username, Email, Password, FullName) VALUES ('$username', '$email', '$hashed_password', '$fullname')";
+        if(mysqli_num_rows($execQuery) != 0) {
+            $registration_error = "Phone Number or Email already exists.";
+        }else{
+            $query = "INSERT INTO User VALUES (null, '$fullname', '$email', '$password', '$phoneNo', '$address', 'Customer')";
             $execQuery = mysqli_query($conn, $query);
 
-            if ($execQuery) {
-              
+            if($execQuery){
                 header("Location: login.php?registered");
-                exit();
-            } else {
+            }else{
                 $registration_error = "Error in registration. Please try again.";
             }
         }
@@ -63,14 +53,20 @@ if (isset($_POST["register"])) {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            color: white;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button {
+            display: none;
         }
 
         .form-container {
-            background-color: #fff;
+            background-color: transparent;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
+            border: 2px solid #fff;
         }
 
         h2 {
@@ -84,11 +80,15 @@ if (isset($_POST["register"])) {
         }
 
         input {
-            width: 100%;
+            width: 94%;
             padding: 8px;
             margin-bottom: 10px;
             border-radius: 4px;
             border: 1px solid #ccc;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
 
         button {
@@ -129,6 +129,10 @@ if (isset($_POST["register"])) {
             display: inline-flex;
             align-items: center;
             margin-top: 5px;
+            text-wrap: nowrap;
+        }
+        .show-password > label {
+            margin-left: 5px;
         }
 
         .show-password input {
@@ -147,21 +151,24 @@ if (isset($_POST["register"])) {
         <?php endif; ?>
 
         
-        <form method="POST" action="register.php">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required><br><br>
+        <form method="POST">
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" id="fullname" required><br><br>
 
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="number" name="phoneNo" id="phone" required><br><br>
+
+            <label for="address">Address:</label>
+            <input type="address" name="address" id="address" required><br><br>
 
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required><br><br>
 
             <label for="confirm_password">Confirm Password:</label>
             <input type="password" name="confirm_password" id="confirm_password" required><br><br>
-            
-                <label for="fullname">Full Name:</label>
-            <input type="text" name="fullname" id="fullname" required><br><br>
             
             <div class="show-password">
                 <input type="checkbox" id="showPassword"> <label for="showPassword">Show Password</label>
