@@ -217,8 +217,91 @@
             
         }
     }else{
-        echo "login pre";
-        header("location: login.php");
+        //echo "login pre";
+       // header("location: login.php");
+       echo "<header>
+                <div class='left-selection'>
+                <div class='brand'>Collections</div>
+                <nav class='nav'>
+                    <div class='dropdown'>
+                        <button class='dropdown-btn'>Select Brand <image src= 'down-chevron (2).png'></button>
+                        
+                        <div class='dropdown-content'>
+                            <a href='./explorer.php?filter=All'>All</a>
+                            <a href='./explorer.php?filter=Adidas'>Adidas</a>
+                            <a href='./explorer.php?filter=Nike'>Nike</a>
+                            <a href='./explorer.php?filter=Fila'>Fila</a>
+                            <a href='./explorer.php?filter=Jordan'>Jordan</a>
+                            <a href='./explorer.php?filter=New Balance'>New Balance</a>
+                            <a href='./explorer.php?filter=World Balance'>World Balance</a>
+                        </div>
+                    </div>
+            
+                    <div class='dropdown'>
+                        <button class='dropdown-btn'><a href='./explorer.php?filter='>Sneakers</a></button>
+                        <div class='dropdown-content'>
+                        </div>
+                    </div>
+                    <div class='dropdown'>
+                        <button class='dropdown-btn'>Boots</button>
+                    </div>
+                    <div class='dropdown'>
+                        <button class='dropdown-btn'>Sandals </button>
+                    
+                            
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class='right-selection'>
+                <div class='account-info' id='account-info'>Sign In/Register</div>
+            </div>
+            <input class='searchbar'  placeholder='Search' type='text'>
+            <image src='magnifying-glass.png' style='transform:translateX(-150px);' width='12px' height='12px'>
+            <div class='cart-icon disabled' id='cart-icon'>🛒</div>
+            </header>
+            <div class='dd'></div>
+                <h1 class='explore-title'>Explore Our Collections</h1>
+
+            <section class='products'>";
+
+            require("./db.php");
+
+            $query = "";
+            
+            if(isset($_GET["filter"])){
+                if($_GET["filter"] == "All"){
+                    $query = "select * from Product";
+                }else{
+                    $query = "select * from Product WHERE Brand = '" . $_GET["filter"] . "'";
+                }
+            }else{
+                $query = "select * from Product";
+            }
+
+            if(isset($_GET["filter"])){
+                if($_GET["filter"] == "Sneakers"){
+                    $query = "select * from Product where Category='" .$_GET["filter"] . "'";
+                }else if($_GET["filter"]=="Boots"){
+                    $query = "select * from Product WHERE Category ='" . $_GET["filter"] . "'";
+                }else if($_GET["filter"]=="Sandals"){
+                $query = "select * from Product where Category='" .$_GET["filter"] . "'";
+            }
+        }
+
+            if($exec = mysqli_query($conn,$query)){
+                while($rows = mysqli_fetch_assoc($exec)){
+
+                    $Name= $rows["Name"];
+                    $Image= $rows["ImageURL"];
+                    echo" <div class='product-card'>
+                        <img src='" . $Image . "' alt='Product'>
+                        <div class='product-title'>" . $Name . "</div>
+                        </div>";
+                }
+            }
+
+            echo "</section>";
     }
 ?>
     <script>
