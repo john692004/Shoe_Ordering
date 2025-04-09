@@ -849,6 +849,9 @@
                 <div class="welcome-text">
                     <h1>Welcome back, Admin!</h1>
                     <p>Here's what's happening with your business today.</p>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
                   
                 </div>
                 <div class="welcome-image">
@@ -1116,7 +1119,6 @@
                 e.preventDefault();
                 document.querySelector('.sidebar-menu li a.active').classList.remove('active');
                 this.classList.add('active');
-                
                 // Close sidebar on mobile after selection
                 if (window.innerWidth < 992) {
                     document.querySelector('.sidebar').classList.remove('active');
@@ -1138,7 +1140,7 @@
         
         // In a real implementation, you would add chart libraries here (Chart.js, etc.)
         // Example for Chart.js:
-        /*
+        
         const salesChart = new Chart(document.getElementById('sales-chart'), {
             type: 'line',
             data: {
@@ -1161,7 +1163,7 @@
                 }
             }
         });
-        */
+        
     </script>
 </body>
 </html>
